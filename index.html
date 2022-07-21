@@ -1,22 +1,130 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Weather-API-Dashboard</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css">
+<head>
+  <title>Weather-API-Dashboard</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-  <body>
-      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="/assets/js/script.js"></script>
-  </body>
+
+<body>
+  <nav class="navbar bg-primary navbar-cutsom">
+    <h1>Weather Dashboard</h1>
+  </nav>
+  <div class="wrapper">
+    <div class="sidebar-custom">
+      <section>
+        <div class="form-group">
+          <h3>Search for a City:</h3>
+          <form id="search-submit">
+            <label for="search"></label>
+            <input type="text" class="form-control" name="search" id="search-input" aria-describedby="helpId"
+              placeholder="Salt Lake City"><br>
+            <button type="button" name="search-submit" 
+              class="btn btn-primary btn-lg btn-block">Search</button>
+          </form>
+        </div>
+        <div class="list-group list-custom">
+          <li id="pcUt" class="list-group-item list-group-item-action list-group-item-primary">Park City, Utah</li>
+          <li id="wpFl" class="list-group-item list-group-item-action list-group-item-primary">West Palm Beach, Florida</li>
+          <li id="" class="list-group-item list-group-item-action list-group-item-primary">Akron, Ohio</li>
+          <li id="" class="list-group-item list-group-item-action list-group-item-primary">New York City, New York</li>
+          <li id="" class="list-group-item list-group-item-action list-group-item-primary">Boston, Massachusetts</li>
+          <li id="" class="list-group-item list-group-item-action list-group-item-primary">Greensboro, North Carolina</li>
+          <li id="" class="list-group-item list-group-item-action list-group-item-primary">Bosie, Idaho</li>
+          <li id="" class="list-group-item list-group-item-action list-group-item-primary">Rio Rancho, New Mexico</li>
+        </div>
+      </section>
+    </div>
+    <div class="currentWeather">
+      <section>
+        <h3 id="currentCity">Atlanta (3/30/1996)<span id="weatherIcon"> ☁</span></h3>
+        <p id="temp">74</p>
+        <p id="wind">6 MPH</p>
+        <p id="humity"> 40%</p>
+        <p id="uv">0.47</p>
+      </section>
+    </div>
+    <div class="forecast">
+      <h3>5-Day Forecast:</h3>
+      <div class="cards">
+        <div id="oneDay" class="card">
+          <div class="card-header">
+            03/31/2021
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">☔</li>
+            <li class="list-group-item">Temp: </li>
+            <li class="list-group-item">Wind: </li>
+            <li class="list-group-item">Humidity: </li>
+          </ul>
+        </div>
+        <div id="twoDay" class="card">
+          <div class="card-header">
+            03/31/2021
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">☔</li>
+            <li class="list-group-item">Temp: </li>
+            <li class="list-group-item">Wind: </li>
+            <li class="list-group-item">Humidity: </li>
+          </ul>
+        </div>
+        <div id="threeday" class="card">
+          <div class="card-header">
+            03/31/2021
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">☔</li>
+            <li class="list-group-item">Temp: </li>
+            <li class="list-group-item">Wind: </li>
+            <li class="list-group-item">Humidity: </li>
+          </ul>
+        </div>
+        <div id="fourDay" class="card">
+          <div class="card-header">
+            03/31/2021
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">☔</li>
+            <li class="list-group-item">Temp: </li>
+            <li class="list-group-item">Wind: </li>
+            <li class="list-group-item">Humidity: </li>
+          </ul>
+        </div>
+        <div id="fiveDay" class="card">
+          <div class="card-header">
+            03/31/2021
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">☔</li>
+            <li class="list-group-item">Temp: </li>
+            <li class="list-group-item">Wind: </li>
+            <li class="list-group-item">Humidity: </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="/assets/js/script.js"></script>
+</body>
+
 </html>

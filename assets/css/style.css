@@ -1,0 +1,68 @@
+:root{
+
+}
+
+
+.navbar-cutsom{
+    color: white;
+    justify-content: center;
+    font-weight: bolder;
+    grid-row: span;
+}
+
+.wrapper {
+    margin: 5px 5px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    'one two two'
+    'one thre thre';
+}
+
+@media (min-width: 50em) {
+    .wrapper{
+     grid-template-areas: 
+     'one two two'
+     'one three three';
+    }
+ }
+
+.sidebar-custom{
+    justify-content: center;
+    grid-area: one;
+}
+
+.currentWeather{
+    border: 2px black solid; 
+    grid-area: two;   
+}
+
+.forecast{
+    grid-area: three;
+}
+
+.cards{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: 
+    '1 2 3 4 5'; 
+}
+
+
+.cards:nth-child(1){
+    grid-area: 1;
+}
+.cards:nth-child(2){
+    grid-area: 2;
+}
+.cards:nth-child(3){
+    grid-area: 3;
+}
+.cards:nth-child(4){
+    grid-area: 4;
+}
+.cards:nth-child(5){
+    grid-area: 5;
+}
