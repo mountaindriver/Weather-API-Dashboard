@@ -1,38 +1,9 @@
 var searchSubmit = $("#search-submit");
 var searchFormEl = $("#search-form");
 var pcUt = $("#pcUt");
+var locationList = $('#locationList');
 
 
-function getLatLon(city) {
-    city.trim();
-    
-    var APIKey = 'bcfe542296f533b3e42b29e72545fb72'
-    
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-
-    console.log(queryURL)
-    fetch(queryURL).
-        then(function (response) {
-            if (!response.ok) {
-                console.log("bad response")
-                alert('not a city')
-                throw response.json()
-            }
-            return response.json()
-        })
-
-        .then(function (data) {
-            console.log('First API-----------')
-            console.log(data);
-
-            var lat = data.coord.lat;
-            var lon = data.coord.lon;
-            console.log(lat, lon);
-
-           getData(lat, lon, APIKey)
-        })
-    }
-    
 function getData(lat, lon, APIKey){
 
     var queryURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + APIKey
@@ -47,7 +18,6 @@ function getData(lat, lon, APIKey){
         return response.json()
     })
     .then(function (data){
-        console.log('Second API-----------')
         console.log(data)
 
         var tempK = data.current.temp;
@@ -68,19 +38,56 @@ function getData(lat, lon, APIKey){
         uviEl.text('UV Index: ' + uvi)
 
         for(i = 1; i < 6; i ++){
-            var dailyNum = [i];
-            console.log(dailyNum)
-        
-            // var maxTemp = data.daily.0;
-            // var minTemp = data.daily.temp;
+            var dailyNum = i;
+            
+            var icon = data.daily[i].weather[0].icon;
+            console.log(icon);
+            var iconURL = 'http:openweathermap.org/img/w/'+icon+'.png';
+            var iconEl = $('#'+i+'icon');
 
-            // console.log (maxTemp)
+            var maxTemp = Math.floor((data.daily[i].temp.max-273.15)*1.8)+32;
+            var minTemp = Math.floor((data.daily[i].temp.min-273.15)*1.8)+32;
+            var temp = $("#"+i+"temp");
+            temp.text('Temp: ' + maxTemp + "° / " + minTemp + '°');
+
+            var wind_speed = Math.floor(data.daily[i].wind_speed);
+            var wind = $('#'+i+'wind');
+            wind.text("Wind: "+wind_speed+" MPH")
+            
+            var humidity = data.daily[i].humidity;
+            var hum = $('#'+i+'hum');
+            hum.text('Humidty: '+humidity+'%')
         }
     })
 }
 
 
+function getLatLon(city) {
+    city.trim();
+    
+    var APIKey = 'bcfe542296f533b3e42b29e72545fb72'
+    
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
+    fetch(queryURL).
+        then(function (response) {
+            if (!response.ok) {
+                console.log("bad response")
+                alert('not a city')
+                throw response.json()
+            }
+            return response.json()
+        })
+
+        .then(function (data) {
+            console.log(data)
+            var lat = data.coord.lat;
+            var lon = data.coord.lon;
+
+           getData(lat, lon, APIKey)
+        })
+    }
+    
 
 
 
@@ -104,11 +111,14 @@ function handleSearchFormSubmit(event) {
 }
 
 
-function pcUT() {
-    var city = "park city";
 
-    getLatLon(city)
+
+function listClick(event){
+   var city = event.target.innerHTML;
+    console.log(city)
+   getLatLon(city)
 }
 
-pcUt.on("click", pcUT)
+
+locationList.on('click', listClick)
 searchSubmit.on("submit", handleSearchFormSubmit);
