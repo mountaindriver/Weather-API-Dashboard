@@ -2,9 +2,10 @@ var searchSubmit = $("#search-submit");
 var searchFormEl = $("#search-form");
 var pcUt = $("#pcUt");
 var locationList = $('#locationList');
+var delteButton = $('#delete')
 
 
-function getData(lat, lon, APIKey){
+function getData(lat, lon, APIKey, city){
 
     var queryURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + APIKey
 
@@ -19,31 +20,35 @@ function getData(lat, lon, APIKey){
     })
     .then(function (data){
         console.log(data)
-
-        var tempK = data.current.temp;
-        var tempF = Math.round(((tempK-273.15)*1.8)+32);
-        var tempEl = $("#temp");
-        tempEl.text('Temp: '+tempF + '°');
         
-        var wind = Math.floor(data.current.wind_speed);
-        var windEl = $('#wind');
-        windEl.text('Wind: ' + wind + ' MPH');
+        var currentCityEl = $("#0currentCity");
+        currentCityEl.text(city);
         
-        var humidity = data.current.humidity;
-        var humidityEl = $('#humidity');
-        humidityEl.text('Humidity: '+ humidity + '%')
-        
+        // Take the UV Index and colors it depending on how sever the light will be
         var uvi = data.current.uvi;
-        var uviEl = $('#uv');
-        uviEl.text('UV Index: ' + uvi)
+        var uviEl = $('#0uv');
+        uviEl.text(uvi)
 
-        for(i = 1; i < 6; i ++){
-            var dailyNum = i;
+        if (uvi < 5){
+            uviEl.attr("class", "bg-success")
+        } else if (uvi > 7){
+            uviEl.attr("class", 'bg-danger')
+        } else {
+            uviEl.attr("class", 'bg-warning')
+        }
+
+        // Adds content to the current weather card and the forecast cards
+        for(i = 0; i < 6; i ++){
             
+            var dateEl = $('#'+i+"date");
+            dateEl.text("  " + moment().add(i, 'days').format('MMM Do'));
+
             var icon = data.daily[i].weather[0].icon;
-            console.log(icon);
-            var iconURL = 'http:openweathermap.org/img/w/'+icon+'.png';
+            var iconAlt = data.daily[i].weather[0].description;
+            var iconURL = 'http://openweathermap.org/img/wn/'+icon+'@2x.png';
             var iconEl = $('#'+i+'icon');
+            iconEl.attr('src', iconURL);
+            iconEl.attr('alt', iconAlt)
 
             var maxTemp = Math.floor((data.daily[i].temp.max-273.15)*1.8)+32;
             var minTemp = Math.floor((data.daily[i].temp.min-273.15)*1.8)+32;
@@ -84,11 +89,18 @@ function getLatLon(city) {
             var lat = data.coord.lat;
             var lon = data.coord.lon;
 
-           getData(lat, lon, APIKey)
+           getData(lat, lon, APIKey, city)
         })
     }
+   
     
+function renderCityList(city){    
+        var li = $('<li></li>').text(city);
+        var locationList = $('#locationList');
+        li.attr('class', 'list-group-item list-group-item-action list-group-item-primary')
 
+        locationList.append(li);
+}
 
 
 function handleSearchFormSubmit(event) {
@@ -102,15 +114,12 @@ function handleSearchFormSubmit(event) {
         return
     };
 
-    console.log(searchInputVal);
-
     var city = searchInputVal;
     console.log(city);
-    
+
     getLatLon(city);
+    renderCityList(city);
 }
-
-
 
 
 function listClick(event){

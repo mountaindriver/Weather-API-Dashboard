@@ -1,7 +1,9 @@
 :root{
 
 }
-
+h3{
+    font-size: large;
+}
 
 .navbar-cutsom{
     color: white;
@@ -40,6 +42,10 @@
 
 .forecast{
     grid-area: three;
+}
+
+.forecast ul {
+    background-color: aqua;
 }
 
 .cards{
