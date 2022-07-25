@@ -7,6 +7,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!-- Google font/icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,31 +19,29 @@
 </head>
 
 <body>
-  <nav class="navbar bg-primary navbar-cutsom">
-    <h1>Weather Dashboard</h1>
+  <nav class="navbar navbar-cutsom">
+    <div class="form-group row">
+      <h1>Weather Dashboard</h1>   
+    </div>
   </nav>
   <div class="wrapper">
     <div class="sidebar-custom">
       <section>
-        <div class="form-group">
-          <h3>Search for a City's Weather:</h3>
-          <form id="search-submit">
-            <label for="search"></label>
-            <input type="text" class="form-control" name="search" id="search-input" aria-describedby="helpId"
-              placeholder="Salt Lake City"><br>
-            <button type="button" name="search-submit" action="submit"
-              class="btn btn-primary btn-lg btn-block">Search</button>
-          </form>
-        </div>
-        <div id="locationList" class="list-group list-custom">
-          <li class="list-group-item list-group-item-action list-group-item-primary">Park City, Utah</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary">West Palm Beach, Florida</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary">Akron, Ohio</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary">New York City, New York</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary">Boston, Massachusetts</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary">Greensboro, North Carolina</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary">Bosie, Idaho</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary">Rio Rancho, New Mexico</li>
+        <form id="search-submit">
+          <label for="search"></label>
+          <input type="text" class="form-control input-custom" name="search" id="search-input" aria-describedby="helpId"
+            placeholder="Search City or Zip Code">
+          </form>  
+        <div id="locationList" class="list-group">
+          <p class="lead">Favorites:</p>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Park City, Utah</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">West Palm Beach, Florida</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Akron, Ohio</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">New York City, New York</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Boston, Massachusetts</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Greensboro, North Carolina</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Bosie, Idaho</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Rio Rancho, New Mexico</li>
           <p class="lead">
             Search History:
           </p>
@@ -46,74 +49,55 @@
       </section>
     </div>
     <div class="currentWeather">
+      
       <section>
         <h3><span id="0currentCity">City </span><span id="0date">(Date)</span>
           <img id="0icon" width=" 50" height="50"></span>
-          <p id="0temp">Temp: </p>
+          <p class='temp' id="0temp">Temp: </p>
           <p id="0wind">Wind: _MPH</p>
           <p id="0hum">Humidity: </p>
-          <p>UV Index: <span id="0uv"></span></p>
+          <p>UV Index: <span id="uv"> </span></p>
       </section>
     </div>
     <div class="forecast">
-      <h3>5-Day Forecast:</h3>
-      <div class="cards">
+      <h2>5-Day Forecast:</h2>
+      <section class="cards">
         <div id="oneDay" class="card">
-          <div class="card-header">
-            <h3 id="1date"></h3>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><img id="1icon" width=" 50" height="50"></li>
-            <li id="1temp" class="list-group-item">Temp: </li>
-            <li id="1wind" class="list-group-item">Wind: </li>
-            <li id="1hum" class="list-group-item">Humidity: </li>
-          </ul>
+          <h3 id="1date"> </h3>
+          <p class='temp' id="1temp" class="">Temp: </p>
+          <img id="1icon" width=" 80" height="80">
+          <p id="1wind" class="">Wind: </p>
+          <p id="1hum" class="">Humidity: </p>
         </div>
         <div id="twoDay" class="card">
-          <div class="card-header">
-            <h3 id="2date"></h3>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><img id="2icon" width=" 50" height="50"></li>
-            <li id="2temp" class="list-group-item">Temp: </li>
-            <li id="2wind" class="list-group-item">Wind: </li>
-            <li id="2hum" class="list-group-item">Humidity: </li>
-          </ul>
+          <h3 id="2date"> </h3>
+          <p class='temp' id="2temp" class="">Temp: </p>
+          <img id="2icon" width=" 80" height="80">
+          <p id="2wind" class="">Wind: </p>
+          <p id="2hum" class="">Humidity: </p>
         </div>
         <div id="threeday" class="card">
-          <div class="card-header">
-            <h3 id="3date"></h3>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><img id="3icon" width=" 50" height="50"></li>
-            <li id="3temp" class="list-group-item">Temp: </li>
-            <li id="3wind" class="list-group-item">Wind: </li>
-            <li id="3hum" class="list-group-item">Humidity: </li>
-          </ul>
+          <h3 id="3date"> </h3>
+          <p class='temp' id="3temp" class="">Temp: </p>
+          <img id="3icon" width=" 80" height="80">
+          <p id="3wind" class="">Wind: </p>
+          <p id="3hum" class="">Humidity: </p>
         </div>
         <div id="fourDay" class="card">
-          <div class="card-header">
-            <h3 id="4date"></h3>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><img id="4icon" width=" 50" height="50"></li>
-            <li id="4temp" class="list-group-item">Temp: </li>
-            <li id="4wind" class="list-group-item">Wind: </li>
-            <li id="4hum" class="list-group-item">Humidity: </li>
-          </ul>
+          <h3 id="4date"> </h3>
+          <p class='temp' id="4temp">Temp: </p>
+          <img id="4icon" width=" 80" height="80">
+          <p id="4wind">Wind: </p>
+          <p id="4hum">Humidity: </p>
         </div>
         <div id="fiveDay" class="card">
-          <div class="card-header">
-            <h3 id="5date"></h3>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><img id="5icon" width=" 50" height="50"></li>
-            <li id="5temp" class="list-group-item">Temp: </li>
-            <li id="5wind" class="list-group-item">Wind: </li>
-            <li id="5hum" class="list-group-item">Humidity: </li>
-          </ul>
+          <h3 id="5date"> </h3>
+          <p class='temp' id="5temp">Temp: </p>
+          <img id="5icon" width=" 80" height="80">
+          <p id="5wind">Wind: </p>
+          <p id="5hum">Humidity: </p>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 

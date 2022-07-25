@@ -1,61 +1,144 @@
 :root{
+    --clr-blue-900: rgb(41, 41, 180);
+    --clr-blue-500: CornflowerBlue;
+    --clr-blue-100: lightskyblue;
+    --clr-neutral-900: black;
+    --clr-neautral-500: tan;
+    --clr-neautral-100: white;
+}
 
+body {
+    background-color: var(--clr-neautral-500);
 }
-h3{
-    font-size: large;
-}
+
 
 .navbar-cutsom{
-    color: white;
-    justify-content: center;
+    background-color: var(--clr-blue-900);
+    color: var(--clr-neautral-100);
     font-weight: bolder;
     grid-row: span;
+    justify-content: center;
 }
 
 .wrapper {
     margin: 5px 5px;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     grid-template-areas: 
-    'one two two'
-    'one thre thre';
+    'one'
+    'two'
+    'three';
 }
 
-@media (min-width: 50em) {
-    .wrapper{
-     grid-template-areas: 
-     'one two two'
-     'one three three';
-    }
- }
+.input-custom {
+    text-align: center;
+    border-radius: 16px;
+
+}
 
 .sidebar-custom{
     justify-content: center;
     grid-area: one;
+    
+}
+
+.list-custom{
+    background-color: var(--clr-blue-500);
+    color: var(--clr-neutral-900);
+
+    margin-bottom: 5px;
+    border-radius: 16px;
+    max-width: 30em;
+
+    text-align: center;
+    align-self: center;
+}
+
+.list-custom:hover{
+    background-color: steelBlue;
+    transform: scale(1.1);
+}
+
+.currentWeather h3{
+    text-align: center;
+    font-size: larger;
 }
 
 .currentWeather{
-    border: 2px black solid; 
     grid-area: two;   
+    padding: 15px;
+    text-align: left;
+    border-radius: 16px;
+    background-color: var(--clr-blue-500);
+}
+
+#uv{
+    padding: 2px 7px;
+    border-radius: 16px;
 }
 
 .forecast{
     grid-area: three;
 }
 
-.forecast ul {
-    background-color: aqua;
+.forecast h2 {
+    text-align: center;
+    font-weight: bolder;
+    font-family: serif;
+}
+
+.forecast h3 {
+    text-align: center;
+    font-weight: bolder;
+    font-family: serif;
+}
+.forecast div {
+    background-color: var(--clr-blue-900);
+    color: var(--clr-neautral-100);
+
+    text-align: center;
+    font-size: large;
+    padding: 5px;
+    border-radius: 1em;
+}
+
+.forecast img{
+    align-self: center;
+}
+
+.temp{
+    font-size: x-large;
+}
+.forecast div:hover{
+    transform: scale(1.05);
+}
+
+.forecast:hover{
+    transform: translateY(0);
+    transition-delay: 500ms;
+}
+
+.forecast h3{
+    border-bottom: 4px black solid;
+    text-align: center;
+    font-size: x-large;
+}
+
+.lead{
+    font-weight: bolder;
+    font-size: x-large;
+    margin: 0px 10px;
 }
 
 .cards{
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
-    '1 2 3 4 5'; 
+    '1 2 3'
+    '4 5'; 
 }
-
 
 .cards:nth-child(1){
     grid-area: 1;
@@ -72,3 +155,32 @@ h3{
 .cards:nth-child(5){
     grid-area: 5;
 }
+
+@media (min-width: 50em) {
+    .wrapper{
+     display: grid;
+     gap: 1rem;
+     grid-template-columns: repeat(4, 1fr);
+     grid-template-areas: 
+     'one two two two'
+     'one three three three';
+    }
+    .cards{
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: 
+        '1 2 3 4 5'; 
+ }
+ }
+
+ @media (max-width: 50em){
+    .cards{
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        '1 2 3'
+        '1 4 5'; 
+    }
+ }

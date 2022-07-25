@@ -26,7 +26,7 @@ function getData(lat, lon, APIKey, city){
         
         // Take the UV Index and colors it depending on how sever the light will be
         var uvi = data.current.uvi;
-        var uviEl = $('#0uv');
+        var uviEl = $('#uv');
         uviEl.text(uvi)
 
         if (uvi < 5){
@@ -53,15 +53,15 @@ function getData(lat, lon, APIKey, city){
             var maxTemp = Math.floor((data.daily[i].temp.max-273.15)*1.8)+32;
             var minTemp = Math.floor((data.daily[i].temp.min-273.15)*1.8)+32;
             var temp = $("#"+i+"temp");
-            temp.text('Temp: ' + maxTemp + "° / " + minTemp + '°');
+            temp.text( maxTemp + "° / " + minTemp + '°');
 
             var wind_speed = Math.floor(data.daily[i].wind_speed);
             var wind = $('#'+i+'wind');
-            wind.text("Wind: "+wind_speed+" MPH")
+            wind.text(wind_speed+" MPH")
             
             var humidity = data.daily[i].humidity;
             var hum = $('#'+i+'hum');
-            hum.text('Humidty: '+humidity+'%')
+            hum.text(humidity+'% Humidity')
         }
     })
 }
@@ -97,7 +97,7 @@ function getLatLon(city) {
 function renderCityList(city){    
         var li = $('<li></li>').text(city);
         var locationList = $('#locationList');
-        li.attr('class', 'list-group-item list-group-item-action list-group-item-primary')
+        li.attr('class', 'list-group-item list-group-item-action list-group-item-primary list-custom')
 
         locationList.append(li);
 }
