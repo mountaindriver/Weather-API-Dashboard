@@ -45,7 +45,7 @@ function getData(lat, lon, APIKey, city){
 
             var icon = data.daily[i].weather[0].icon;
             var iconAlt = data.daily[i].weather[0].description;
-            var iconURL = 'http://openweathermap.org/img/wn/'+icon+'@2x.png';
+            var iconURL = 'https://openweathermap.org/img/wn/'+icon+'@2x.png';
             var iconEl = $('#'+i+'icon');
             iconEl.attr('src', iconURL);
             iconEl.attr('alt', iconAlt)
@@ -72,7 +72,7 @@ function getLatLon(city) {
     
     var APIKey = 'bcfe542296f533b3e42b29e72545fb72'
     
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
     fetch(queryURL).
         then(function (response) {
