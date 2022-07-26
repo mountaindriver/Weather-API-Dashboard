@@ -21,17 +21,17 @@
 <body>
   <nav class="navbar navbar-cutsom">
     <div class="form-group row">
-      <h1>Weather Dashboard</h1>   
+      <h1>Lucas's Weather Dashboard</h1>   
     </div>
   </nav>
   <div class="wrapper">
-    <div class="sidebar-custom">
+    <div id="sidebar-custom">
       <section>
+        <p class="lead">Search:</p>
         <form id="search-submit">
-          <label for="search"></label>
           <input type="text" class="form-control input-custom" name="search" id="search-input" aria-describedby="helpId"
             placeholder="Search City or Zip Code">
-          </form>  
+        </form>  
         <div id="locationList" class="list-group">
           <p class="lead">Favorites:</p>
           <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Park City, Utah</li>
@@ -47,13 +47,13 @@
           </p>
         </div>
       </section>
-    </div>
-    <div class="currentWeather">
-      
-      <section>
+    </div id='currentWeather'>
+    <div id='currentWeather'>
+      <h2>Current Weather:</h2>
+      <section class="weatherWrapper">
         <h3><span id="0currentCity">City </span><span id="0date">(Date)</span>
-          <img id="0icon" width=" 50" height="50"></span>
           <p class='temp' id="0temp">Temp: </p>
+          <img id="0icon" width=" 120" height="120"></span>
           <p id="0wind">Wind: _MPH</p>
           <p id="0hum">Humidity: </p>
           <p>UV Index: <span id="uv"> </span></p>

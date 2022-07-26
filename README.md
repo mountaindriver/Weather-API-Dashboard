@@ -92,8 +92,7 @@ Project Link: [https://github.com/mountaindriver/Work-Scheduler](https://github.
 These resources helped me greatly and gave me different perspectives on how to complete the project.
 
 * [MDN](https://developer.mozilla.org/en-US/)
-* [Sean Brown-Byfield- Triology Tutor]()
-* [Coding Bootcamp 04/26 Stu_Local-Storage]()
+* [Coding Bootcamp]()
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

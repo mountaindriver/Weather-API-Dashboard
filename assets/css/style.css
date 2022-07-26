@@ -5,23 +5,28 @@
     --clr-neutral-900: black;
     --clr-neautral-500: tan;
     --clr-neautral-100: white;
+    --clr-blue-909: linear-gradient(to right, rgba(10,32,205,.6), rgba(10, 32, 205,0.99), rgba(10, 32, 205,1));
 }
 
 body {
     background-color: var(--clr-neautral-500);
 }
 
-
+/* Top Bar */
 .navbar-cutsom{
-    background-color: var(--clr-blue-900);
+    background: var(--clr-blue-909);
     color: var(--clr-neautral-100);
     font-weight: bolder;
     grid-row: span;
     justify-content: center;
+    font-family: serif;
 }
 
+
+/* wraps the main content */
 .wrapper {
-    margin: 5px 5px;
+    max-width: 80em;
+    margin: 15px auto;
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr;
@@ -31,16 +36,17 @@ body {
     'three';
 }
 
+/* Side Bar */
+#sidebar-custom{
+    grid-area: one;
+    justify-content: center;
+    
+}
+
 .input-custom {
     text-align: center;
     border-radius: 16px;
-
-}
-
-.sidebar-custom{
-    justify-content: center;
-    grid-area: one;
-    
+    margin-top: 0px;
 }
 
 .list-custom{
@@ -60,17 +66,21 @@ body {
     transform: scale(1.1);
 }
 
-.currentWeather h3{
+/* Current Weather */
+#currentWeather{
+    grid-area: two;
+}
+
+.weatherWrapper h3{
     text-align: center;
     font-size: larger;
 }
 
-.currentWeather{
-    grid-area: two;   
-    padding: 15px;
-    text-align: left;
-    border-radius: 16px;
+.weatherWrapper{ 
     background-color: var(--clr-blue-500);
+    padding: 15px;
+    border-radius: 16px;
+    text-align: left;
 }
 
 #uv{
@@ -78,6 +88,8 @@ body {
     border-radius: 16px;
 }
 
+
+/* 5 Day Forecast */
 .forecast{
     grid-area: three;
 }
@@ -96,7 +108,7 @@ body {
 .forecast div {
     background-color: var(--clr-blue-900);
     color: var(--clr-neautral-100);
-
+    
     text-align: center;
     font-size: large;
     padding: 5px;
@@ -107,9 +119,6 @@ body {
     align-self: center;
 }
 
-.temp{
-    font-size: x-large;
-}
 .forecast div:hover{
     transform: scale(1.05);
 }
@@ -123,12 +132,6 @@ body {
     border-bottom: 4px black solid;
     text-align: center;
     font-size: x-large;
-}
-
-.lead{
-    font-weight: bolder;
-    font-size: x-large;
-    margin: 0px 10px;
 }
 
 .cards{
@@ -156,14 +159,26 @@ body {
     grid-area: 5;
 }
 
+/* General Style */
+.temp{
+    font-size: x-large;
+}
+.lead{
+    font-weight: bolder;
+    font-size: x-large;
+    margin: 0px 10px;
+}
+
+
+/* Responsive Layout with Grid */
 @media (min-width: 50em) {
     .wrapper{
-     display: grid;
-     gap: 1rem;
-     grid-template-columns: repeat(4, 1fr);
-     grid-template-areas: 
-     'one two two two'
-     'one three three three';
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+        'one two two two'
+        'one three three three';
     }
     .cards{
         display: grid;
@@ -171,8 +186,7 @@ body {
         grid-template-columns: repeat(5, 1fr);
         grid-template-areas: 
         '1 2 3 4 5'; 
- }
- }
+ }};
 
  @media (max-width: 50em){
     .cards{
@@ -182,5 +196,4 @@ body {
         grid-template-areas: 
         '1 2 3'
         '1 4 5'; 
-    }
- }
+ }};
