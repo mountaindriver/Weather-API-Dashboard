@@ -49,6 +49,10 @@ body {
     margin-top: 0px;
 }
 
+.input-custom {
+    transform: scale(1.1);
+}
+
 .list-custom{
     background-color: var(--clr-blue-500);
     color: var(--clr-neutral-900);
@@ -69,6 +73,7 @@ body {
 /* Current Weather */
 #currentWeather{
     grid-area: two;
+
 }
 
 .weatherWrapper h3{
@@ -81,6 +86,10 @@ body {
     padding: 15px;
     border-radius: 16px;
     text-align: left;
+}
+
+.weatherWrapper:hover{
+    transform: scale(1.01);
 }
 
 #uv{
