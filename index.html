@@ -7,9 +7,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Google font/icons -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <!-- Google font/icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
   <!-- Bootstrap CSS -->
@@ -21,7 +20,7 @@
 <body>
   <nav class="navbar navbar-cutsom">
     <div class="form-group row">
-      <h1>Lucas's Weather Dashboard</h1>   
+      <h1>Lucas's Weather Dashboard</h1>
     </div>
   </nav>
   <div class="wrapper">
@@ -31,17 +30,22 @@
         <form id="search-submit">
           <input type="text" class="form-control input-custom" name="search" id="search-input" aria-describedby="helpId"
             placeholder="Search City or Zip Code">
-        </form>  
+        </form>
         <div id="locationList" class="list-group">
           <p class="lead">Favorites:</p>
           <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Park City, Utah</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">West Palm Beach, Florida</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">West Palm Beach,
+            Florida</li>
           <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Akron, Ohio</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">New York City, New York</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Boston, Massachusetts</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Greensboro, North Carolina</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">New York City, New York
+          </li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Boston, Massachusetts
+          </li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Greensboro, North
+            Carolina</li>
           <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Bosie, Idaho</li>
-          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Rio Rancho, New Mexico</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary list-custom">Rio Rancho, New Mexico
+          </li>
           <p class="lead">
             Search History:
           </p>
@@ -59,7 +63,7 @@
           <p>UV Index: <span id="uv"> </span></p>
       </section>
     </div>
-    <div class="forecast">
+    <div id="forecast">
       <h2>5-Day Forecast:</h2>
       <section class="cards">
         <div id="oneDay" class="card">

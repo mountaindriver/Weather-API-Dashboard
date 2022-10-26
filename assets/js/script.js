@@ -2,8 +2,8 @@ var searchSubmit = $("#search-submit");
 var searchFormEl = $("#search-form");
 var pcUt = $("#pcUt");
 var locationList = $('#locationList');
-var delteButton = $('#delete')
-
+var delteButton = $('#delete');
+var contact=$('#contact');
 
 function getData(lat, lon, APIKey, city){
 
